@@ -1,17 +1,32 @@
 <?php
-// src/Service/MessageGenerator.php
+
 namespace App\Service;
+
+use App\Service\SmtpProvider;
+use App\Service\SesProvider;
+use App\Entity\User;
 
 class NotificationService
 {
-    public function notify (): string
+    private $smtpProvider;
+    private $sesProvider;
+
+    public function __construct(SmtpProvider  $smtpProvider, SesProvider $sesProvider)
     {
-        $messages = [
-            
-        ];
+        $this->smtpProvider = $smtpProvider;
+        $this->sesProvider = $sesProvider;
+    }
 
-        $index = array_rand($messages);
+    public function notify (User $user, string $message): bool
+    {
+        /*$email = (new Email())
+            ->from('admin@example.com')
+            ->to($user->getEmail())
+            ->subject(':)')
+            ->text($message);
 
-        return $messages[$index];
+        $this->mailer->send($email);*/
+
+        return true;
     }
 }
