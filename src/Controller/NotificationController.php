@@ -33,6 +33,7 @@ class NotificationController extends AbstractController
 
         $user = new User();
         $email = $user->getEmail();
+        $user->setEmail('admin@prueba.com');
 
         $notify = $this->notificationService->notify($user,$message);
 

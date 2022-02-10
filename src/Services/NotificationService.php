@@ -26,7 +26,7 @@ class NotificationService
             ->text($message);
 
         $this->mailer->send($email);*/
-
+        $this->smtpProvider->send($user->getEmail(),$message);
         return true;
     }
 }
