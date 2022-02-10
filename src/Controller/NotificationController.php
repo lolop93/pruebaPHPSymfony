@@ -38,8 +38,5 @@ class NotificationController extends AbstractController
 
         return new JsonResponse(['id'=>$id,'message'=>$message,'email'=>$email,'result'=>$notify]);
 
-        /*return $this->render('notification/index.html.twig', [
-            'controller_name' => 'NotificationController',
-        ]);*/
     }
 }
